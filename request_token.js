@@ -1,10 +1,10 @@
 	var token;  // access token을 저장하기 위한 변수
 
 	function requestTokenAwareApi(callback, args){
-		var appId = "hO0sJiKUMxD0lQay";     // 변경해야 함
-		var secret = "Xpe9uFQz4ywJK9TD";    // 변경해야 함
-		var uName = "kwanu70";              // 변경해야 함
-		var pw = "2Kwanwoo!";               // 변경해야 함
+		var appId = "IoTMakers 플랫폼에 등록된 App ID";     // 변경해야 함
+		var secret = "IoTMakers 플랫폼에 등록된 App의 Secret";    // 변경해야 함
+		var uName = "YourUserName";              // 변경해야 함
+		var pw = "YourPassword";               // 변경해야 함
 
 		//App ID, Secret, 계정아이디, 계정 비밀번호를 기반으로 access token 획득
 		$.ajax('https://iotmakers.kt.com/oauth/token', {

@@ -32,7 +32,21 @@
 
 		![](https://iotmakers.kt.com/openp/assets/images/guide_app_reg_and3.png)
 
-## 2. 주요 기능
+## 2. 인증 정보 등록
+- **request_token.js** 파일을 열어, appId, secret, uName, pw 변수를 앞서 등록한 앱정보와 자신의 계정 정보를 바탕으로 수정해야 합니다. 
+
+```javascript
+function requestTokenAwareApi(callback, args){
+		var appId = "IoTMakers 플랫폼에 등록된 App ID";     // 변경해야 함
+		var secret = "IoTMakers 플랫폼에 등록된 App의 Secret";    // 변경해야 함
+		var uName = "YourUserName";              // 변경해야 함
+		var pw = "YourPassword";               // 변경해야 함
+```
+
+## 3. 실행하기		
 - 디바이스 목록 조회
+	- list_devices.html을 웹브라우저에서 실행
 - 디바이스 태그스트림 목록 조회
+	- 출력된 디바이스 목록 중에 디바이스 ID를 클릭하여 해당 디바이스의 태그스트림 목록 출력 
 - 디바이스 태그스트림 마지막 로그 조회
+	- 출력된 태그스트림 목록 중에 태그스트림 ID를 클릭하여 마지막 로그 조회	
