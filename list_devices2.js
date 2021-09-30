@@ -1,9 +1,9 @@
     function listTags(deviceId) {
-        setTimeout(invokeTagStreamAPI(deviceId), 300);
+        setTimeout(invokeEventAPI(deviceId), 300);
         return false;
     }
 
-    function invokeTagStreamAPI(deviceId) {
+    function invokeEventAPI(deviceId) {
 
         // 태그스트림 목록 조회 URI
         var API_URI2 = '/api/v1/streams/'+deviceId;
@@ -14,7 +14,7 @@
             contentType: "application/json",
             dataType:"json",
             success: function (data, status, xhr) {
-               printTagStreamList(deviceId, data.data);  // 성공시, 태그스트림 목록 출력을 위한 함수 호출
+               printEventList(deviceId, data.data);  // 성공시, 이벤트 목록 출력을 위한 함수 호출
             },
             error: function(xhr,status,e){
                 alert("error");
@@ -23,7 +23,7 @@
     };
 
     // deviceId와 관련있는 모든 태그스트림 목록 출력을 위한 함수
-    function printTagStreamList(deviceId, data){
+    function printEventList(deviceId, data){
         
         // "디바이스를 선택하세요" 메시지 삭제
         if (document.getElementsByTagName("div")[0] != null)
@@ -64,8 +64,8 @@
 
                 var a = document.createElement('a');    // <a> 태그 생성
        
-                a.setAttribute('href',`javascript:readLastLog('${deviceId}', '${v.tagStrmId}' )`); // 링크 ! 클릭했을 때 반응함
-                a.innerHTML = v.tagStrmId;
+                a.setAttribute('href',`javascript:readEventList('${deviceId}', '${v.eventId}' )`); // 링크 클릭시 호출 함수 수정
+                a.innerHTML = v.eventId; // 수정
 
                 td1.append(a);
 

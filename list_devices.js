@@ -26,27 +26,29 @@
     function printDeviceList(data){
         if (data.length > 0) {
             var tr = document.createElement("tr");
-            tr.setAttribute("style","background-color:lightgrey");
-            var th1 = document.createElement("th");
-            var th2 = document.createElement("th");
+            tr.setAttribute("style","background-color:lightgrey"); // Device Name , Device ID 부분 배경색 회색으로
+            var th1 = document.createElement("th"); // Device Name
+            var th2 = document.createElement("th"); // Device ID
             th1.innerText = "Device Name";
             th2.innerText = "Device ID";
-            tr.append(th1);
+            tr.append(th1); // 테이블을 둘러싸고 있는 tr에 추가함.
             tr.append(th2);
             $('#devices').append(tr);   // id가 devices인 태그에 테이블 제목 행을 추가
-        
-            data.forEach(function(v){  
+            
+            ////////////////////////////////// 여기까지가 Device Name Device ID 부분을 표시한 것 //////////////////////////////////////
 
-                var tr = document.createElement("tr");
-                var td1 = document.createElement("td");
+            data.forEach(function(v){  // data는 배열, v는 배열의 원소(디바이스 객체)
+
+                var tr = document.createElement("tr"); // 테이블 tr하나 만들고
+                var td1 = document.createElement("td"); 
                 var td2 = document.createElement("td");
-                td1.innerText = v.name;
+                td1.innerText = v.name; // 디바이스 이름 ( ex) "name" : "my sample device" )
 
-                var a = document.createElement('a');    // <a> 태그 생성
+                var a = document.createElement('a');    // <a> 태그 생성.  디바이스 아이디에 링크를 거는 코드
        
                 // 해당 링크 클릭시에 device id를 기반으로 태그스트림 목록 조회
-                a.setAttribute('href',`javascript:listTags( '${v.id}' )`);
-                a.innerHTML = v.id;
+                a.setAttribute('href',`javascript:listEvents( '${v.id}' )`);   // 디바이스 아이디에 링크를 거는 코드 --> 눌렸을 때 listTags 함수 호출
+                a.innerHTML = v.id;  // 디바이스 아이디 이름에 링크 걸렸지만 표시는 링크가 아닌 디바이스 네임으로 해야되니까
 
                 td2.append(a);
 

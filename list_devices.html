@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>IoTMakers Open API Sample</title>
+        <title>IoTMakers Open API 과제4</title>
 
         <!-- JQuery 라이브러리 설정 -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -11,11 +11,11 @@
         <!-- 인증 토큰 획득 자바스크립트 로딩-->
         <script src="request_token.js"></script>
 
-        <!-- 태그스트림 마지막 로그 조회 자바스크립트 로딩-->
-        <script src="read_last_log.js"></script>
+        <!-- 이벤트 목록  조회 자바스크립트 로딩-->
+        <script src="read_Event.js"></script>
 
-        <!-- 태그스트림 목록 조회 자바스크립트 로딩-->
-        <script src="list_tags.js"></script>
+        <!-- 디바이스 이벤트 목록 조회 자바스크립트 로딩-->
+        <script src="list_events.js"></script>
 
         <!-- 디바이스 조회 자바스크립트 로딩-->
         <script src="list_devices.js"></script>
@@ -31,15 +31,25 @@
 
         <hr>
 
-        <h4>디바이스 태그스트림 목록</h4>
-        <div>태그스트림 목록을 표시하기 위해서는 디바이스를 선택하세요</div>
-        <table id="tags">
+        <h4>이벤트 목록 조회 API </h4>
+        <div>이벤트 목록을 표시하기 위해서는 디바이스를 선택하세요</div>
+
+        <table id="events">
         </table>
-     
+
+            <br><br>
         <hr>
 
-        <h4>디바이스 태그스트림 마지막 로그</h4>
-        <div>태그스트림 마지막 로그를 표시하기 위해서는 태그스트림 ID를 선택하세요</div>
+        <h4>이벤트 발생 로그(이벤트 ID)</h4>
+        <div>이벤트 발생 로그를 표시하기 위해서는 EventId, Timestamp 입력</div>
+        <p>
+            <label for="name">Timestamp는 ioTMakers에서 확인 : </label>
+            <br>
+            <input type="text" id="eventId" name="eventId" placeholder="예) 001PTL001D10016003"></input>
+            <input type="text" id="startTime" name="startTime" placeholder="예) 1630983600000"></input>
+            <button onclick="readEventList(eventId,startTime)">API TEST</button>
+            
+        </p>
         <table id="logs">
         </table>
     </body>
